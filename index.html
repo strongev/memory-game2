@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гра на Пам'ять</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Гра на Пам'ять</h1>
+            <p>Знайдіть всі пари карток за найменший час!</p>
+        </header>
+
+        <!-- Leaderboard Section -->
+        <section id="leaderboard-section" class="section">
+            <h2>🏆 Таблиця Лідерів</h2>
+            <div id="leaderboard-loading">Завантаження...</div>
+            <table id="leaderboard-table" class="leaderboard" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Місце</th>
+                        <th>Гравець</th>
+                        <th>Час</th>
+                        <th>Ходи</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Start Game Form -->
+        <section id="start-section" class="section">
+            <h2>🎮 Почати Гру</h2>
+            <form id="start-form" class="start-form">
+                <div class="form-group">
+                    <label for="nickname">Нікнейм:</label>
+                    <input type="text" id="nickname" name="nickname" required minlength="2" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Почати Гру</button>
+            </form>
+        </section>
+
+        <!-- Game Section -->
+        <section id="game-section" class="section" style="display: none;">
+            <div class="game-header">
+                <div class="game-stats">
+                    <div class="stat">
+                        <span class="stat-label">⏱️ Час:</span>
+                        <span id="timer" class="stat-value">0с</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">🎯 Ходи:</span>
+                        <span id="moves" class="stat-value">0</span>
+                    </div>
+                </div>
+                <button id="back-to-menu" class="btn btn-secondary">Назад до меню</button>
+            </div>
+            
+            <div id="game-grid" class="game-grid">
+                <!-- Cards will be generated dynamically -->
+            </div>
+        </section>
+
+        <!-- Game Complete Modal -->
+        <div id="game-complete-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>🎉 Вітаємо!</h2>
+                <p>Ви успішно завершили гру!</p>
+                <div class="game-results">
+                    <div class="result-item">
+                        <span class="result-label">⏱️ Час:</span>
+                        <span id="final-time" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">🎯 Ходи:</span>
+                        <span id="final-moves" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">🎮 Спроба №:</span>
+                        <span id="attempt-number" class="result-value"></span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="try-again" class="btn btn-primary">Спробувати ще раз</button>
+                    <button id="back-to-leaderboard" class="btn btn-secondary">Таблиця лідерів</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading overlay -->
+        <div id="loading-overlay" class="loading-overlay" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Збереження результату...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
